@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+    .main{
+    width: 500px; 
+    height:500px;  
+    text-align:center; 
+    vertical-align:middle;
+    display:table-cell;
+    }
+    .btn{
+        padding: 10px;
+        margin: auto;
+    }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1 style="margin: auto; font-size:100px"id="result">0</h1>
+        <P style="margin: auto;">
+            <input type="text" id="num"></input>
+        </P>
+        <ul class="btn"">
+            <button value="+" onclick="result('+')">+</button>
+            <button value="-" onclick="result('-')">-</button>
+            <button value="Undo" onclick="result('Undo')">Undo</button>
+            <button value="Redo" onclick="result('Redo')">Redo</button>
+            <button onclick="data()">ㅎㅇ</button>
+        </ul>
+
+    </div>
+ 
+
+  <script src="https://routest-bucket.s3.ap-northeast-2.amazonaws.com/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+       const data = async () => await axios.get("https://www.sever.routest.link/cat");
+        axios.get({
+        url: 'https://www.sever.routest.link/cat', // 통신할 웹문서
+        method: 'get', // 통신할 방식
+      }).then(function (response) {
+         // response  
+         console.log(response)
+    }).catch(function (error) {
+        // 오류발생시 실행
+    }).then(function() {
+        // 항상 실행
+    });
+    </script>
+</body>
+</html>
