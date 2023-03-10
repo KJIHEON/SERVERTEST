@@ -4,13 +4,19 @@
   "description": "",
   "main": "dd.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@notionhq/client": "^2.2.3",
+    "dotenv": "^16.0.3",
+    "emailjs": "^4.0.1",
     "express": "^4.18.2",
     "mysql2": "^3.1.2",
+    "nodemon": "^2.0.21",
     "pm2": "^5.2.2"
-  }
+  },
+  "type": "module"
 }
