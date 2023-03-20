@@ -8,6 +8,8 @@
 // */
 // // 나누기 반복문 스트링
 
+import { text } from "express"
+
 // const { string } = require("joi")
 
 
@@ -98,3 +100,51 @@
 // // console.log(factorial(count))
 // // console.log(15511210043330986000/10)
 // console.log(fac2(x))
+//패치 함수 쓰는법
+
+
+
+ async  function name(){
+  const defaltUrl = "https://server.routest.link/" 
+  const num1 = Math.floor(Math.random() * 100)
+  const num2 = Math.floor(Math.random() * 2)
+  const url = [
+    `"camps/?doNm=강원도&numOfRows=${num1}&pageNo=1&sort=${num2}"`,
+    "users/nearCamp/?campX=127.2868240&campY=36.3623491"]
+ 
+    const myHeaders = {
+        'Content-Type': 'application/json;charset=UTF-8' ,
+         Accept : 'application/json' }
+    // myHeaders.append("Cookie", "accessToken=eYyA19iag3f; refreshToken=eyJhbGciOi");
+    const raw = JSON.stringify({
+        email: `youwa${num1}${num1}@gmail.com`,
+        password: "@Umm1231234"
+      });
+    const requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    /* 겟 */
+    fetch(`${defaltUrl}${url[num2]}`)
+    .then((res) =>res.json())
+    .then((data) => console.log(data))
+    .catch((error) => console.log("error:", error));
+  /* 포스트 */
+    fetch(`${defaltUrl}users/signup/check`, requestOptions)
+      .then((res) =>res.json())
+      .then((data) => console.log(data))
+      .catch(error => console.log('error', error));
+    fetch(`${defaltUrl}users/signup`, requestOptions)
+    .then((res) =>res.json())
+    .then((data) => console.log(data))
+      .catch(error => console.log('error', error));
+    fetch(`${defaltUrl}users/login`, requestOptions)
+    .then((res) =>console.log(data))
+    .then((data) => console.log(data))
+    .catch(error => console.log('error', error));
+
+      }
+    name()

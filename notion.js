@@ -12,15 +12,16 @@ const notionKey = process.env.NOTION_KEY
 https://www.notion.so/노션페이지id(이거사용) ?v=이거아님=4 */
 const notionDatabaseId = process.env.NOTION_DATABASE_KEY
 const notion = new Client({ auth: notionKey })
+//객체 선언 해둔거를 => 변수["키"]로 정보 찾기 가능
 
 const page_values = {
-    "회사명": "디앤커머스",
-    "이름": "단",
-    "연락처": "01069904",
-    "문의내용": "얼마죠?",
-    "생성일시": "2023-03-10T02:56:00.000Z"
+    "회사명": "f라라라ㅏㄹ",
+    "이름": "ㅁㄴㅇㄻㄴㅇㄹ",
+    "연락처": "123123123",
+    "문의내용": "ㄴㅇㅁㄹㄴㅇㅁㄹ",
+    "생성일시": "2023-03-10T02:56:00.000Z",
+    "ㅎㅇ" : "신기하네"
 }
-
 async function getData(){
     const {results} = await notion.databases.query({ database_id: notionDatabaseId })
     console.log(results)
@@ -86,5 +87,5 @@ async function createData(){
         }
       });
 }
-console.log(createData())
-console.log(getData())
+// console.log(createData())
+// console.log(getData())

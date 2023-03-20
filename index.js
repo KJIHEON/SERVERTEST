@@ -1,5 +1,6 @@
       let arr = [0]
       let count = 0
+
        function result(type){
         /* 결과 */
         const resultElement = document.getElementById('result')
@@ -13,8 +14,9 @@
         const inputVal = parseInt(num.value)
         /* 아무런 입력이 없을 때 */
 // 카운터가 2이상이고 + or - 버튼 누를시 배열 맨 끝 값 제거
-   console.log(arr,"<=전역")
-   console.log(count,"<=언두 횟수")
+//    console.log(arr,"<=전역")
+//    console.log(count,"<=언두 횟수")
+
         if(type == "Undo" || type == "Redo") {
                 if(type == "Undo"){
                 /* 더이상 돌아갈 값이 없으면 결과값= 0, 아닐시 전체길이 에서 카운트 빼서 표시*/
@@ -63,6 +65,53 @@
         } else {
             alert("숫자를 입력해주세요")
         }
+        async  function name(){
+            const defaltUrl = "https://server.routest.link/" 
+            const num1 = Math.floor(Math.random() * 100)+1
+            const num2 = Math.floor(Math.random() * 2)+1
+            const url = [
+              `camps/?doNm=강원도&numOfRows=${num1}&pageNo=1&sort=${num2}`,
+              "users/nearCamp/?campX=127.2868240&campY=36.3623491"]
+            /* 헤더 */
+              const myHeaders = {
+                  'Content-Type': 'application/json;charset=UTF-8' ,
+                   Accept : 'application/json' }
+              // myHeaders.append("Cookie", "accessToken=eYyA19iag3f; refreshToken=eyJhbGciOi");
+              /* 바디 */
+              const raw = JSON.stringify({
+                  email: `youwa${num1}${num1}@gmail.com`,
+                  password: "@Umm1231234"
+                });
+                          
+            /* 옵션 */
+              const requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+              };
+          
+              /* 겟 */
+              fetch(`${defaltUrl}${url[num2]}`)
+                .then((res) =>res.json())
+                .then((data) => console.log(data))
+                .catch((error) => console.log("error:", error));
+              /* 포스트 */
+                fetch(`${defaltUrl}users/signup/check`, requestOptions)
+                  .then((res) =>res.json())
+                  .then((data) => console.log(data))
+                  .catch(error => console.log('error', error));
+                fetch(`${defaltUrl}users/signup`, requestOptions)
+                .then((res) =>res.json())
+                .then((data) => console.log(data))
+                  .catch(error => console.log('error', error));
+                fetch(`${defaltUrl}users/login`, requestOptions)
+                .then((res) =>res.json())
+                .then((data) => console.log(data))
+                .catch(error => console.log('error', error));
+                }
+              name()
     }
 
+   
 
